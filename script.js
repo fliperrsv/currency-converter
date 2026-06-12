@@ -42,10 +42,10 @@ function saveCurrencySettings() {
     localStorage.setItem('currencyTo', toSelect.value);
 }
 
-// Загрузка курса
+// Загрузка курса (новый API: exchangerate.host)
 async function fetchRate(from, to) {
     try {
-        const url = `https://api.exchangerate-api.com/v4/latest/${from}`;
+        const url = `https://api.exchangerate.host/latest?base=${from}&symbols=${to}`;
         const response = await fetch(url);
         if (!response.ok) throw new Error('Ошибка загрузки');
         const data = await response.json();
@@ -56,7 +56,7 @@ async function fetchRate(from, to) {
         return rate;
     } catch (error) {
         console.error(error);
-        rateInfoSpan.innerHTML = '❌ Ошибка загрузки курса';
+        rateInfoSpan.innerHTML = '❌ Ошибка загрузки курса. Попробуйте позже.';
         return null;
     }
 }
