@@ -42,10 +42,11 @@ function saveCurrencySettings() {
     localStorage.setItem('currencyTo', toSelect.value);
 }
 
-// Загрузка курса (новый API: exchangerate.host)
+// ==================== НОВЫЙ API (STABLE) ====================
 async function fetchRate(from, to) {
     try {
-        const url = `https://api.exchangerate.host/latest?base=${from}&symbols=${to}`;
+        // Используем стабильный API Frankfurter (не требует ключа)
+        const url = `https://api.frankfurter.app/v1/latest?base=${from}&symbols=${to}`;
         const response = await fetch(url);
         if (!response.ok) throw new Error('Ошибка загрузки');
         const data = await response.json();
