@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>CurrencyX – конвертер валют</title>
+    <meta name="description" content="Бесплатный конвертер валют с актуальными курсами. Поддерживает 5 валют: RUB, USD, EUR, GBP, CNY.">
+    <meta name="author" content="Сергей Резунков">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1><i class="fas fa-chart-line"></i> CurrencyX</h1>
+        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+    </div>
+    <p class="sub">Конвертер валют по актуальному курсу</p>
+
+    <div class="amount-input">
+        <label>Сумма:</label>
+        <input type="number" id="amount" value="100" step="any" placeholder="Введите сумму">
+    </div>
+
+    <div class="currency-pair">
+        <div class="currency-select">
+            <label>Из валюты:</label>
+            <select id="fromCurrency">
+                <option value="RUB">🇷🇺 RUB</option>
+                <option value="USD">🇺🇸 USD</option>
+                <option value="EUR">🇪🇺 EUR</option>
+                <option value="GBP">🇬🇧 GBP</option>
+                <option value="CNY">🇨🇳 CNY</option>
+            </select>
+        </div>
+        <div class="swap-icon">
+            <button id="swapBtn" aria-label="Поменять валюты"><i class="fas fa-exchange-alt"></i></button>
+        </div>
+        <div class="currency-select">
+            <label>В валюту:</label>
+            <select id="toCurrency">
+                <option value="USD">🇺🇸 USD</option>
+                <option value="EUR">🇪🇺 EUR</option>
+                <option value="RUB">🇷🇺 RUB</option>
+                <option value="GBP">🇬🇧 GBP</option>
+                <option value="CNY">🇨🇳 CNY</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="result-card">
+        <div class="result-label">Результат:</div>
+        <div class="result-amount" id="convertedAmount">—</div>
+        <div class="rate-info" id="rateInfo">Загрузка курсов...</div>
+    </div>
+
+    <button class="refresh-btn" id="refreshBtn"><i class="fas fa-sync-alt"></i> Обновить курс</button>
+    <footer><i class="fas fa-cloud-sun"></i> Курсы обновляются из открытого API</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
